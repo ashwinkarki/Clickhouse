@@ -1,9 +1,14 @@
 services:
   clickhouse:
     image: clickhouse/clickhouse-server:latest
+    container_name: clickhouse
     ports:
       - "8123:8123"
       - "9000:9000"
+    environment:
+      CLICKHOUSE_USER: ashwin
+      CLICKHOUSE_PASSWORD: mysecret
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
     volumes:
       - clickhouse_data:/var/lib/clickhouse
 
